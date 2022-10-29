@@ -30,15 +30,23 @@ console.log(currentUser);
           <div className="d-flex text-white align-items-center ">
             {currentUser ? (
               <>
-                <h5 className="mb-0 text-capitalize">
-                  {currentUser.username}
-                </h5>
+                
                 <button
                   className="ms-2 btn btn-outline-light"
+                  onClick={()=>navigate("/favori")}
+                >
+                  Favori
+                </button>
+                <button
+                  className="ms-2  me-2 btn btn-outline-light"
                   onClick={handleLogOut}
                 >
                   Logout
                 </button>
+                <h5 className="mb-0 text-capitalize">
+                  {currentUser.username}
+                </h5>
+              
               </>
             ) : (
               <>

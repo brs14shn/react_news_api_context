@@ -1,11 +1,20 @@
 import React from "react";
 import { useLocation, Link,useNavigate } from "react-router-dom";
+import { useCustomAuthContext } from "../context/AuthContext";
 
 
 const DetailPage = () => {
   const navigate = useNavigate()
   const { state } = useLocation();
+
+  const {favourites,setfavourites } =useCustomAuthContext()
   console.log(state);
+
+  const handleFavourite =(state)=>{
+    setfavourites([...favourites,state])
+    navigate("/favori")
+  }
+  console.log(favourites)
   return (
     <div className="container py-5">
       <div className="card mb-3">
@@ -35,6 +44,13 @@ const DetailPage = () => {
                   className="btn btn-success ms-3 "
                 >
                   Home
+                </button>
+                <button
+                  onClick={()=>handleFavourite(state)}
+                  
+                  className="btn btn-success ms-3 "
+                >
+                  Add Favourite
                 </button>
                 <li className="list-group-item ">
                 <div  className="link text-decoration-underline" onClick={()=>navigate("/articles",{state:state.url})}>News Source</div>

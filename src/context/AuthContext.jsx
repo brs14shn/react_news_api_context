@@ -10,6 +10,9 @@ export const useCustomAuthContext =()=>{
 const AuthContextProvider = ({children}) => {
 
   const [currentUser,setCurrentUser] = React.useState(false)
+  const [favourites,setfavourites] = React.useState([])
+
+  console.log(favourites)
  
 const signIn = (username,password) =>{
     setCurrentUser({username,password})
@@ -20,6 +23,8 @@ const signIn = (username,password) =>{
     currentUser,
     signIn,
     setCurrentUser,
+    favourites,
+    setfavourites
   }
   return (
     <AuthContext.Provider value={values}>

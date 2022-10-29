@@ -17,7 +17,7 @@ const AppRouter = () => {
     <Route path='/login'  element={<Login/> }  />
     <Route path='/detail'  element={<DetailPage />} />
     <Route path='/articles'  element={<SourceSection/>} />
-    <Route path='/favoriler'  element={<Favoriler />  } />
+    <Route path='/favori'  element={<Favoriler />  } />
 
 
 
