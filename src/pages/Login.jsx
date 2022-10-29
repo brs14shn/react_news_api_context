@@ -21,12 +21,12 @@ const handleSubmit = (e) => {
     <div className="loginContainer">
     <div className='formContainer'>
       <img src={img2} alt="homeSvg"/>
-      <h1>{"<Emre's/>"}News</h1>
+      <h1><strong>{"<Emre's/>"}</strong>News</h1>
       <form className='styledForm' 
       onSubmit={handleSubmit}
       >
         <input  onChange={(e)=>setUsername(e.target.value)} type="text" placeholder="username" required />
-        <input type="password" placeholder="password" required />
+        <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password" required />
         <button type="submit">Login</button>
       </form>
     </div>

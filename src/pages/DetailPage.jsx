@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link,useNavigate } from "react-router-dom";
-import SourceSection from "../pages/SourceSection";
+
 
 const DetailPage = () => {
   const navigate = useNavigate()

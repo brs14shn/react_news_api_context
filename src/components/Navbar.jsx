@@ -22,7 +22,7 @@ console.log(currentUser);
   
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-primary shadow-lg  p-3 mb-5 rounded-0">
+      <nav className="navbar navbar-expand-lg bg-primary shadow-lg p-3 rounded-0">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand text-white">
             <h4>News</h4>

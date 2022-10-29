@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+
+.homeContainer{
+
+  height: calc(100vh - 85px);
+}
 .cardContainer{
   
   flex-wrap: wrap;
@@ -28,6 +33,14 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px
   text-align: center;
 }
 
+.card .card-title{
+  border: 1px solid red;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 input[type="search"]{
   outline: none;
 }
@@ -38,11 +51,14 @@ input[type="search"]{
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 100vh;
+  height: calc(100vh - 77px);
   background-image: url("https://picsum.photos/1600/900");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  object-fit: cover;
+
+
 }
 
 .formContainer{
