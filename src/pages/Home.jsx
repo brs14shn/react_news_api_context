@@ -21,10 +21,10 @@ const Home = () => {
   //! RESTAPI👇
 
   const getnewsDataFromApi = async () => {
-    
+
     const API_KEY = "f3bec0d572254c0c95fa46e72a065627";
     let url = `https://newsapi.org/v2/everything?
-q=${searchText}&page=1&apiKey=${API_KEY}`;
+q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
     if (searchText) {
       try {
         //   const response = await axios.get(url);
