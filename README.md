@@ -54,6 +54,7 @@ Favorite products are listed on the favorite page and there is a button to remov
 ```
 
 
+
 ### 🚩 Libraries and Technologies I use
 
 - React
@@ -65,6 +66,7 @@ Favorite products are listed on the favorite page and there is a button to remov
 
 
 ### 🚩 How does my project look
+[]()![news2](https://user-images.githubusercontent.com/99876715/198898073-4ef32136-daff-4e85-b63a-1fa64409687f.gif)
 
 
 ### 🚩 How To Use
