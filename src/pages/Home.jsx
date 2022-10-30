@@ -9,9 +9,22 @@ import { useCustomAuthContext } from "../context/AuthContext";
 import Pagination from "../components/Pagination";
 
 const Home = () => {
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState("beşiktaş");
   const [newData, setNewData] = useState();
   const [readMore, setReadMore] = useState(false);
+  //! PAGINATION
+  const [currentPage,setCurrentPage] =useState(1)
+  const [newsPerPage,setNewsPerPage] =useState(9)
+
+//? GET CURRENT NEWS
+
+const indexOfLastNews=currentPage*newsPerPage  // last pages
+const indexOfFirstNews=indexOfLastNews-newsPerPage //first pages
+const currentNews=newData?.slice(indexOfFirstNews,indexOfLastNews) //9 data
+const totalPages=newData?.length / newsPerPage ;
+console.log(totalPages);  
+
+const paginate=(number)=>setCurrentPage(number) // updating pages
 
 
 
@@ -49,24 +62,7 @@ q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
 //   getnewsDataFromApi();
 // }, [])
 
-//   //! PAGINATION
-  const [currentPage,setCurrentPage] =useState(1)
-  const [newsPerPage,setNewsPerPage] =useState(9)
-   
-//? GET CURRENT POST
 
-const indexOfLastNews=currentPage*newsPerPage  
-console.log(indexOfLastNews);
-const indexOfFirstNews=indexOfLastNews-newsPerPage
-console.log(indexOfFirstNews);
-const currentNews=newData?.slice(indexOfFirstNews,indexOfLastNews) //12 veri geldi
-console.log(currentNews);
-
-
-const totalPages=newData?.length / newsPerPage ;
-console.log(totalPages);  //100
-
-const paginate=(number)=>setCurrentPage(number)
 
   // // //! FİLTER
 
@@ -74,23 +70,13 @@ const paginate=(number)=>setCurrentPage(number)
   //   news.source.name.includes(searchText)
   // })
 
-  // // const handleChange =(e)=>{
-  // //   if(e.target.value==""){
-  // //     setNewData(newData)
-  // //     return
-  // //   }
-  // //   const allNews =newData.filter((item)=>item.source.name.toLowerCase().includes(e.target.value.toLowerCase()))
-  // //   setNewData(allNews)
 
-  // // }
-
-  // //
 
   //! SUBMIT
   const handleSubmit = (e) => {
     e.preventDefault();
-    getnewsDataFromApi();
-    setSearchText("");
+    getnewsDataFromApi(); 
+   
   };
 
   return (

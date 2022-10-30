@@ -12,7 +12,7 @@ const DetailPage = () => {
 
   const handleFavourite =(state)=>{
     setfavourites([...favourites,state])
-    navigate("/favori")
+    navigate("/favorite")
   }
   console.log(favourites)
   return (

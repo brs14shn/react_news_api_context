@@ -33,9 +33,9 @@ console.log(currentUser);
                 
                 <button
                   className="ms-2 btn btn-outline-light"
-                  onClick={()=>navigate("/favori")}
+                  onClick={()=>navigate("/favorite")}
                 >
-                  Favori
+                  Favourite
                 </button>
                 <button
                   className="ms-2  me-2 btn btn-outline-light"

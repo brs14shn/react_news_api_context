@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCustomAuthContext } from '../context/AuthContext'
 
-const Favoriler = () => {
+const Favorites = () => {
 const {favourites,setfavourites} =useCustomAuthContext()
 const navigate = useNavigate()
 
@@ -76,5 +76,5 @@ const handleRemoveFavourites =(url)=>{
   )
 }
 
-export default Favoriler
+export default Favorites
 
