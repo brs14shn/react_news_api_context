@@ -65,7 +65,7 @@ Favorite products are listed on the favorite page and there is a button to remov
 
 
 ### 🚩 How does my project look
-[](./assets/news2.gif)
+
 
 ### 🚩 How To Use
 
