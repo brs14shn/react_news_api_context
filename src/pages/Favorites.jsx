@@ -13,7 +13,7 @@ const defaultImage =
 
 const handleRemoveFavourites =(url)=>{
 
-  const remove =favourites.filter((news)=>news.url !==url) 
+  const remove =favourites.filter((news)=>news.url !== url) 
   setfavourites(remove)
 }
 

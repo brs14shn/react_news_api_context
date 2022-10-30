@@ -1,6 +1,9 @@
 import React from "react";
 import { useLocation, Link,useNavigate } from "react-router-dom";
 import { useCustomAuthContext } from "../context/AuthContext";
+import { toastSuccessNotify } from "../helper/ToastNotify";
+import Share from "../components/Share"
+
 
 
 const DetailPage = () => {
@@ -13,6 +16,7 @@ const DetailPage = () => {
   const handleFavourite =(state)=>{
     setfavourites([...favourites,state])
     navigate("/favorite")
+    toastSuccessNotify("Favourite added")
   }
   console.log(favourites)
   return (
@@ -35,16 +39,17 @@ const DetailPage = () => {
               <li className="list-group-item">
                 {state.publishedAt.slice(0, 10)}
               </li>
-              <li className="list-group-item">{state.source.name}</li>
-
-              <div>
-                <button
+              <li className="list-group-item ">{state.source.name}</li>
+               <li className="list-group-item ">
+               <button
                   onClick={() => navigate("/")}
                   // onClick={() => navigate(-1)}
                   className="btn btn-success ms-3 "
                 >
                   Home
                 </button>
+             
+
                 <button
                   onClick={()=>handleFavourite(state)}
                   
@@ -52,10 +57,14 @@ const DetailPage = () => {
                 >
                   Add Favourite
                 </button>
-                <li className="list-group-item ">
+               </li>
+               <Share state={state}/>
+               
+               
+              <li className="list-group-item ">
                 <div  className="link text-decoration-underline" onClick={()=>navigate("/articles",{state:state.url})}>News Source</div>
               </li>
-              </div>
+              
             </ul>
           </div>
         </div>

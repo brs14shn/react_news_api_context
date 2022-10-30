@@ -62,6 +62,7 @@ Favorite products are listed on the favorite page and there is a button to remov
 - Reactbootstrap
 - Axios
 - React Router Dom (6.3v)
+- React Share
 
 
 ### 🚩 How does my project look
