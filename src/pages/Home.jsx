@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Paginate from "../components/Paginate";
+import Paginate from "../components/Pagination";
 import { toastErrorNotify } from "../helper/ToastNotify";
 import { toastWarnNotify } from "../helper/ToastNotify";
 import img1 from "../assets/Homenews.jpg";
 import { useCustomAuthContext } from "../context/AuthContext";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
   const [searchText, setSearchText] = useState();
   const [newData, setNewData] = useState();
   const [readMore, setReadMore] = useState(false);
+
+
+
+
   const navigate = useNavigate();
 
   const { currentUser } = useCustomAuthContext();
@@ -40,19 +45,46 @@ q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
     }
   };
 
-  // //! FİLTER
+// useEffect(() => {
+//   getnewsDataFromApi();
+// }, [])
 
-  // const handleChange =(e)=>{
-  //   if(e.target.value==""){
-  //     setNewData(newData)
-  //     return
-  //   }
-  //   const allNews =newData.filter((item)=>item.source.name.toLowerCase().includes(e.target.value.toLowerCase()))
-  //   setNewData(allNews)
+//   //! PAGINATION
+  const [currentPage,setCurrentPage] =useState(1)
+  const [newsPerPage,setNewsPerPage] =useState(9)
+   
+//? GET CURRENT POST
 
-  // }
+const indexOfLastNews=currentPage*newsPerPage  
+console.log(indexOfLastNews);
+const indexOfFirstNews=indexOfLastNews-newsPerPage
+console.log(indexOfFirstNews);
+const currentNews=newData?.slice(indexOfFirstNews,indexOfLastNews) //12 veri geldi
+console.log(currentNews);
 
-  //
+
+const totalPages=newData?.length / newsPerPage ;
+console.log(totalPages);  //100
+
+const paginate=(number)=>setCurrentPage(number)
+
+  // // //! FİLTER
+
+  // const newList =currentNews.filter((news)=>{
+  //   news.source.name.includes(searchText)
+  // })
+
+  // // const handleChange =(e)=>{
+  // //   if(e.target.value==""){
+  // //     setNewData(newData)
+  // //     return
+  // //   }
+  // //   const allNews =newData.filter((item)=>item.source.name.toLowerCase().includes(e.target.value.toLowerCase()))
+  // //   setNewData(allNews)
+
+  // // }
+
+  // //
 
   //! SUBMIT
   const handleSubmit = (e) => {
@@ -80,16 +112,16 @@ q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
       </div>
 
       <div className=" cardContainer container row  justify-content-evenly align-items-center mt-5 mx-auto">
-        {!newData && (
+        {!currentNews && (
           <div className="d-flex  justify-content-center mt-2">
             <img className="w-50 mw-75" src={img1} alt="" />
           </div>
         )}
-        {newData?.length === 0 && (
+        {currentNews?.length === 0 && (
           <h1 className="">The News can not be found</h1>
         )}
 
-        {newData?.map((item) => {
+        {currentNews?.map((item) => {
           const {
             urlToImage,
             title,
@@ -139,9 +171,9 @@ q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
           );
         })}
       </div>
-      {/* <div>
-        <Paginate/>
-      </div> */}
+      <div>
+        <Pagination  paginate={paginate}  totalPages={totalPages} />
+      </div>
     </>
   );
 };

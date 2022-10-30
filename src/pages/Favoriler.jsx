@@ -11,7 +11,11 @@ const defaultImage =
 "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
 
-const handleRemoveFavourites =()=>{setfavourites("")}
+const handleRemoveFavourites =(url)=>{
+
+  const remove =favourites.filter((news)=>news.url !==url) 
+  setfavourites(remove)
+}
 
 
 
@@ -59,7 +63,7 @@ const handleRemoveFavourites =()=>{setfavourites("")}
                 <button
                   type="submit"
                   className="btn btn-primary on "
-                  onClick={handleRemoveFavourites}
+                  onClick={()=>handleRemoveFavourites(url)}
                 >
                   Remove Favourite
                 </button>
