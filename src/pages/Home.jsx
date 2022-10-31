@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Paginate from "../components/Pagination";
@@ -14,14 +14,14 @@ const Home = () => {
   const [readMore, setReadMore] = useState(false);
   //! PAGINATION
   const [currentPage,setCurrentPage] =useState(1)
-  const [newsPerPage,setNewsPerPage] =useState(9)
+  const [newsPerPage] =useState(9)
 
 //? GET CURRENT NEWS
 
 const indexOfLastNews=currentPage*newsPerPage  // last pages
 const indexOfFirstNews=indexOfLastNews-newsPerPage //first pages
 const currentNews=newData?.slice(indexOfFirstNews,indexOfLastNews) //9 data
-const totalPages=newData?.length / newsPerPage ;
+const totalPages=Math.ceil(newData?.length / newsPerPage );
 console.log(totalPages);  
 
 const paginate=(number)=>setCurrentPage(number) // updating pages
@@ -41,8 +41,8 @@ const paginate=(number)=>setCurrentPage(number) // updating pages
   const getnewsDataFromApi = async () => {
 
     const API_KEY = "f3bec0d572254c0c95fa46e72a065627";
-    let url = `https://newsapi.org/v2/everything?
-q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
+    let url = `https://newsapi.org/v2/everything?q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
+
     if (searchText) {
       try {
         //   const response = await axios.get(url);
@@ -117,9 +117,9 @@ q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
             url,
           } = item;
           return (
-            <div className="card col-sm-12 col-md-6 col-lg-4 p-3   " key={url}>
+            <div className="card col-sm-12 col-md-6 col-lg-4 p-3" key={url}>
               <img
-                loading="lazy"
+                // loading="lazy"
                 src={urlToImage ? urlToImage : defaultImage}
                 className="card-img-top"
                 alt="..."

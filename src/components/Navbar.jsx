@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+//  
 import { Link,useNavigate } from "react-router-dom";
 import { useCustomAuthContext } from "../context/AuthContext";
 
@@ -13,9 +13,6 @@ console.log(currentUser);
   const handleLogOut = ()=>{
     navigate("/login")
     setCurrentUser("")
-    
-    
-   
   }
 
 
