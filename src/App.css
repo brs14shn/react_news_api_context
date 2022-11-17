@@ -10,12 +10,15 @@
   
   flex-wrap: wrap;
   gap: 1rem;
+  border:"3px solid red"
   
 }
 .cardContainer .card{
 width: 350px;
-height: 550px;
+max-height:580px ;
+/* height: 550px; */
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
 
 }
 
