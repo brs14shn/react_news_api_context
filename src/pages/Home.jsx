@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Paginate from "../components/Pagination";
 import { toastErrorNotify } from "../helper/ToastNotify";
 import { toastWarnNotify } from "../helper/ToastNotify";
 import img1 from "../assets/Homenews.jpg";
@@ -12,6 +11,7 @@ const Home = () => {
   const [searchText, setSearchText] = useState("beşiktaş");
   const [newData, setNewData] = useState();
   const [readMore, setReadMore] = useState(false);
+
   //! PAGINATION
   const [currentPage,setCurrentPage] =useState(1)
   const [newsPerPage] =useState(9)
@@ -40,7 +40,7 @@ const paginate=(number)=>setCurrentPage(number) // updating pages
 
   const getnewsDataFromApi = async () => {
 
-    const API_KEY = "f3bec0d572254c0c95fa46e72a065627";
+    const API_KEY = "24d5059400c74c7686131f5ae60dcf93";
     let url = `https://newsapi.org/v2/everything?q=${searchText}&page=1&sortBy=publishedAt&apiKey=${API_KEY}`;
 
     if (searchText) {
