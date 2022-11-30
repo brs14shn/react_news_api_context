@@ -13,8 +13,14 @@ const DetailPage = () => {
 
   const handleFavourite = (state) => {
     console.log(state);
-    setfavourites([...favourites,state])
-    toastSuccessNotify("Favourite added");
+    const isFavourite = favourites.find((item) => item.id === state.id);
+    //Aynı favori tekrar eklemesin
+    if (!isFavourite) {
+      setfavourites([...favourites,state])
+      toastSuccessNotify("Favourite added");
+
+    }
+    
     navigate("/favorite");
    
   };
